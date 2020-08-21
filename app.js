@@ -1,14 +1,16 @@
-const express = require('express');
+const Express = require('express');
 const path = require('path'); // "path" es una libreria de rutas de carpetas.
 
-const app = new express();
+const app = new Express();
 
 /**
+ * Esta función permite cargar los archivos estáticos.
+ * 
  * "use" es para usar midleware(procesos intermedios), yo pido una ruta y express me la devuelve. 
  * "__dirname" es una varible global de node que indica la carpeta o el directorio donde node se esta procesando o ejecutando.
  * "static" es una funcion de express que permite cargar elementos fijos como assets.
  */
-app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(Express.static(path.join(__dirname, 'public'))); 
 
 /**
  * Ejemplo de ruta raíz con el método GET.
@@ -50,10 +52,9 @@ app.route('/vader')
         response.send('Accediendo a Vader por el método POST')
     });
 
-
 /**
- * "liste" inicializa el servidor de express en el puerto que se le indique.
- *  Seguido de un callback que se ejecutara cuando se inicie.
+ * "listen" inicializa el servidor de express en el puerto que se le indique.
+ *  Seguido de un callback que se ejecutará cuando se inicie.
 */    
 app.listen(3000, () => {
     console.log('Gatito nacido')
