@@ -4,15 +4,6 @@ const path = require('path'); // "path" es una libreria de rutas de carpetas.
 const app = new Express();
 
 /**
- * Esta función permite cargar los archivos estáticos.
- * 
- * "use" es para usar midleware(procesos intermedios), yo pido una ruta y express me la devuelve. 
- * "__dirname" es una varible global de node que indica la carpeta o el directorio donde node se esta procesando o ejecutando.
- * "static" es una funcion de express que permite cargar elementos fijos como assets.
- */
-app.use(Express.static(path.join(__dirname, 'public'))); 
-
-/**
  * Ejemplo de ruta raíz con el método GET.
  * 
  * @param {e.Request} request - El objeto de petición.
@@ -21,6 +12,15 @@ app.use(Express.static(path.join(__dirname, 'public')));
 app.get('/', (request, response) => {
     response.send('¡Bienvenido al palacio de Mazuzoe Mamiko Nishiki!');
 });
+
+/**
+ * Esta función permite cargar los archivos estáticos.
+ * 
+ * "use" es para usar middleware(procesos intermedios), yo pido una ruta y express me la devuelve. 
+ * "__dirname" es una varible global de node que indica la carpeta o el directorio donde node se esta procesando o ejecutando.
+ * "static" es una funcion de express que permite cargar elementos fijos como assets.
+ */
+app.use(Express.static(path.join(__dirname, 'public')));
 
 /**
  * Ejemplo para cargar un archivo de HTML con el método GET.
